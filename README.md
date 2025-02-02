@@ -18,3 +18,8 @@ work with.
 
 The repo uses cargo workspace. The general rule is to use `crates/bin` for packages with binaries
 and `cargo/lib` for library packages that are going to be used by the bins.
+
+## Rust Stack
+
+- Async Runtime: `tokio`
+- Web Framework: `axum`
