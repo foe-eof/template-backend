@@ -1,4 +1,4 @@
-# backend-template
+# template-backend
 
 The backend language is Rust. This repo contains the project skeleton for the backend part.
 
