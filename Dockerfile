@@ -5,17 +5,11 @@ ARG RUNTIME_BASE=debian:bookworm
 
 FROM --platform=${TARGETPLATFORM} ${BUILDER_BASE} AS builder
 
-RUN apt-get update \
-  && apt-get install -y \
-  clang \
-  && rm -rf /var/lib/apt/lists/*
+# Install build dependencies if needed
 
 FROM --platform=${TARGETPLATFORM} ${RUNTIME_BASE} AS runtime
 
-RUN apt-get update \
-  && apt-get install -y \
-  ca-certificates \
-  && rm -rf /var/lib/apt/lists/*
+# Install runtime dependencies if needed
 
 FROM --platform=${TARGETPLATFORM} builder AS build
 
