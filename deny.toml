@@ -1,0 +1,15 @@
+[graph]
+all-features = true
+no-default-features = false
+
+[licenses]
+allow = []
+
+[licenses.private]
+ignore = true
+
+[bans]
+highlight = "all"
+workspace-default-features = "allow"
+external-default-features = "allow"
+deny = ["openssl-sys", "openssl", "rustls-webpki"]

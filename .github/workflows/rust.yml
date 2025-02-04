@@ -11,8 +11,8 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  test:
-    name: test
+  clippy:
+    name: clippy
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -22,9 +22,29 @@ jobs:
         uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           toolchain: beta
+          components: clippy
 
-      - name: Run tests
-        run: cargo test --workspace --all-features --locked
+      - name: Linting
+        run: cargo clippy -- -D warnings
+
+  deny:
+    name: deny
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Install the Rust toolchain
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          toolchain: beta
+          components: clippy
+
+      - name: Install cargo-deny
+        run: cargo install cargo-deny
+
+      - name: Deny
+        run: cargo deny check
 
   fmt:
     name: rustfmt
@@ -42,8 +62,8 @@ jobs:
       - name: Enforce formatting
         run: cargo fmt --check
 
-  clippy:
-    name: clippy
+  test:
+    name: test
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -53,7 +73,6 @@ jobs:
         uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           toolchain: beta
-          components: clippy
 
-      - name: Linting
-        run: cargo clippy -- -D warnings
+      - name: Run tests
+        run: cargo test --workspace --all-features --locked
