@@ -23,3 +23,4 @@ and `cargo/lib` for library packages that are going to be used by the bins.
 
 - Async Runtime: `tokio`
 - Web Framework: `axum`
+- OpenAPI: `utoipa`
