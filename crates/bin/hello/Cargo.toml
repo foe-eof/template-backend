@@ -3,3 +3,4 @@ name = "hello"
 edition = "2024"
 
 [dependencies]
+print = { workspace = true }

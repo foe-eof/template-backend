@@ -3,6 +3,7 @@ resolver = "2"
 members = ["crates/*/*"]
 
 [workspace.dependencies]
+print = { path = "crates/lib/print" }
 
 [profile.release]
 lto = "fat"

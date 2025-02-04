@@ -1,0 +1,5 @@
+[package]
+name = "print"
+edition = "2024"
+
+[dependencies]
