@@ -75,7 +75,7 @@ jobs:
           toolchain: beta
 
       - name: Install taplo
-        run: cargo install taplo
+        run: cargo install taplo-cli
 
       - name: Validate TOML files
         run: taplo format --check
