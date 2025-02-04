@@ -44,7 +44,7 @@ jobs:
         run: cargo install cargo-deny
 
       - name: Deny
-        run: cargo deny check --workspace --all-features --locked
+        run: cargo deny --workspace --all-features --locked check
 
   fmt:
     name: rustfmt
