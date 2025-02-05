@@ -31,12 +31,14 @@ impl Loader {
     pub fn load<C: Config>(self) -> C {
         let explicit_config_dir_path_env = env::var(format!("{}__CONFIG_DIR", C::ENV_PREFIX)).ok();
 
-        let explicit_config_dir_path =
-            match (explicit_config_dir_path_env, self.explicit_config_dir_path.as_ref()) {
-                (Some(env), _) => Some(PathBuf::from(env)),
-                (None, Some(path)) => Some(PathBuf::from(path)),
-                (None, None) => None,
-            };
+        let explicit_config_dir_path = match (
+            explicit_config_dir_path_env,
+            self.explicit_config_dir_path.as_ref(),
+        ) {
+            (Some(env), _) => Some(PathBuf::from(env)),
+            (None, Some(path)) => Some(PathBuf::from(path)),
+            (None, None) => None,
+        };
 
         let config_dir_path =
             explicit_config_dir_path.unwrap_or_else(|| PathBuf::from(C::DEFAULT_CONFIG_DIR));
