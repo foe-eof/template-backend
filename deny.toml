@@ -1,15 +1,15 @@
 [graph]
-all-features = true
+all-features        = true
 no-default-features = false
 
 [licenses]
-allow = []
+allow = ["Apache-2.0", "BSD-3-Clause", "MIT", "Unicode-3.0"]
 
 [licenses.private]
 ignore = true
 
 [bans]
-highlight = "all"
+deny                       = ["openssl", "openssl-sys", "rustls-webpki"]
+external-default-features  = "allow"
+highlight                  = "all"
 workspace-default-features = "allow"
-external-default-features = "allow"
-deny = ["openssl-sys", "openssl", "rustls-webpki"]

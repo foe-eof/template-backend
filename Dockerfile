@@ -28,10 +28,10 @@ RUN \
   mkdir -p /artifacts \
   && cd target/release \
   && cp -t /artifacts \
-  hello \
+  web-server \
   && ls -la /artifacts
 
-FROM --platform=${TARGETPLATFORM} runtime AS hello
-COPY --from=build /artifacts/hello /usr/local/bin
-RUN ldd /usr/local/bin/hello
-CMD ["hello"]
+FROM --platform=${TARGETPLATFORM} runtime AS web-server
+COPY --from=build /artifacts/web-server /usr/local/bin
+RUN ldd /usr/local/bin/web-server
+CMD ["web-server"]

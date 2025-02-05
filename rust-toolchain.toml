@@ -1,4 +1,4 @@
 [toolchain]
-channel = "beta"
-components = ["rustfmt", "clippy"]
-profile = "minimal"
+channel    = "beta"
+components = ["clippy", "rustfmt"]
+profile    = "minimal"

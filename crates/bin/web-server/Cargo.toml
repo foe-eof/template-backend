@@ -1,0 +1,9 @@
+[package]
+edition = "2024"
+name    = "web-server"
+
+[dependencies]
+bin-common = { workspace = true }
+
+axum  = { workspace = true }
+tokio = { workspace = true }
