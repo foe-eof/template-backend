@@ -5,7 +5,15 @@ use tokio::net::TcpListener;
 async fn main() {
     bin_common::init();
 
-    let listener = TcpListener::bind("127.0.0.1:3000").await.unwrap();
+    let web_server::Config { socket_addr } = cfg::Loader::default().load();
+
+    let listener = TcpListener::bind(socket_addr).await.unwrap();
     let router = Router::new().route("/healthcheck", routing::get(|| async { "OK" }));
-    axum::serve(listener, router).await.unwrap();
+
+    tokio::select! {
+        result = axum::serve(listener, router) => {
+            result.unwrap();
+        }
+        _ = bin_common::signal::ctrl_c() => {}
+    };
 }

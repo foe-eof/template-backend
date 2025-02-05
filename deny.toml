@@ -2,14 +2,34 @@
 all-features        = true
 no-default-features = false
 
+[advisories]
+yanked = "allow"
+
 [licenses]
-allow = ["Apache-2.0", "BSD-3-Clause", "MIT", "Unicode-3.0"]
+allow = ["Apache-2.0", "BSD-3-Clause", "ISC", "MIT", "OpenSSL", "Unicode-3.0"]
 
 [licenses.private]
 ignore = true
 
+[[licenses.clarify]]
+expression    = "ISC AND OpenSSL AND MIT"
+license-files = [{ path = "LICENSE", hash = 0xbd0eed23 }]
+name          = "ring"
+version       = "*"
+
 [bans]
-deny                       = ["openssl", "openssl-sys", "rustls-webpki"]
 external-default-features  = "allow"
 highlight                  = "all"
+multiple-versions          = "allow"
 workspace-default-features = "allow"
+
+[[bans.deny]]
+name        = "openssl"
+use-instead = "rustls"
+
+[[bans.deny]]
+name = "openssl-sys"
+
+[[bans.deny]]
+name     = "rustls-webpki"
+wrappers = ["rustls"]

@@ -7,9 +7,17 @@ publish = false
 
 [workspace.dependencies]
 bin-common = { path = "crates/lib/bin-common" }
+cfg        = { path = "crates/lib/cfg" }
 
 axum = { version = "0.8", features = ["http2"] }
+config = { version = "0.15" }
 dotenvy = { version = "0.15" }
+reqwest = { version = "0.12", default-features = false, features = [
+  "charset",
+  "hickory-dns",
+  "http2",
+  "rustls-tls-native-roots",
+] }
 serde = { version = "1", features = ["derive"] }
 sqlx = { version = "0.8", default-features = false, features = [
   "json",
@@ -23,6 +31,7 @@ tokio = { version = "1", features = ["macros", "parking_lot", "rt-multi-thread",
 tower = { version = "0.5" }
 tracing = { version = "0.1" }
 tracing-subscriber = { version = "0.3", features = ["env-filter", "parking_lot"] }
+url = { version = "2", features = ["serde"] }
 utoipa = { version = "5", features = ["axum_extras"] }
 utoipa-axum = { version = "0.2" }
 

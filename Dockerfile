@@ -9,6 +9,8 @@ FROM --platform=${TARGETPLATFORM} ${BUILDER_BASE} AS builder
 
 FROM --platform=${TARGETPLATFORM} ${RUNTIME_BASE} AS runtime
 
+ENV APP_PROFILE=docker
+
 # Install runtime dependencies if needed
 
 FROM --platform=${TARGETPLATFORM} builder AS build

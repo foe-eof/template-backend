@@ -1,3 +1,10 @@
 services:
   web-server:
     build: .
+    init: true
+    environment:
+      - WEB_SERVER__CONFIG_DIR=/web-server/config
+    ports:
+      - 4180:4180
+    volumes:
+      - ./config/web-server/:/web-server/config:ro
