@@ -8,16 +8,23 @@ publish = false
 [workspace.dependencies]
 bin-common = { path = "crates/lib/bin-common" }
 
-axum               = { version = "0.8", features = ["http2"] }
-dotenvy            = { version = "0.15" }
-futures            = { version = "0.3", default-features = false, features = ["async-await", "std"] }
-http               = { version = "1" }
-serde              = { version = "1", features = ["derive"] }
-tokio              = { version = "1", features = ["macros", "parking_lot", "rt-multi-thread", "signal"] }
-tower              = { version = "0.5" }
-tracing            = { version = "0.1" }
+axum = { version = "0.8", features = ["http2"] }
+dotenvy = { version = "0.15" }
+serde = { version = "1", features = ["derive"] }
+sqlx = { version = "0.8", default-features = false, features = [
+  "json",
+  "macros",
+  "migrate",
+  "postgres",
+  "runtime-tokio",
+  "tls-rustls-ring-native-roots",
+] }
+tokio = { version = "1", features = ["macros", "parking_lot", "rt-multi-thread", "signal"] }
+tower = { version = "0.5" }
+tracing = { version = "0.1" }
 tracing-subscriber = { version = "0.3", features = ["env-filter", "parking_lot"] }
-url                = { version = "2", features = ["serde"] }
+utoipa = { version = "5", features = ["axum_extras"] }
+utoipa-axum = { version = "0.2" }
 
 [profile.release]
 lto = "fat"
