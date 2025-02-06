@@ -34,6 +34,7 @@ tracing-subscriber = { version = "0.3", features = ["env-filter", "parking_lot"]
 url = { version = "2", features = ["serde"] }
 utoipa = { version = "5", features = ["axum_extras"] }
 utoipa-axum = { version = "0.2" }
+verdict = { git = "https://github.com/YBoy-git/verdict.git", tag = "v0.0.1" }
 
 [profile.release]
 lto = "fat"

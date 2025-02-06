@@ -4,8 +4,8 @@ name    = "web-server"
 
 [dependencies]
 bin-common = { workspace = true }
-cfg        = { workspace = true }
 
-axum  = { workspace = true }
-serde = { workspace = true }
-tokio = { workspace = true }
+axum    = { workspace = true }
+serde   = { workspace = true }
+tokio   = { workspace = true }
+verdict = { workspace = true }
