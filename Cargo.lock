@@ -1529,7 +1529,7 @@ checksum = "ba73ea9cf16a25df0c8caa16c51acb937d5712a8429db78a3ee29d5dcacd3a65"
 [[package]]
 name = "verdict"
 version = "0.0.1"
-source = "git+https://github.com/YBoy-git/verdict.git?tag=v0.0.1#bd86294bd87c8441792121447fa225e6c4ef65d2"
+source = "git+https://github.com/YBoy-git/verdict.git?tag=0.0.1#bd86294bd87c8441792121447fa225e6c4ef65d2"
 dependencies = [
  "config",
  "reqwest",
