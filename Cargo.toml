@@ -7,7 +7,6 @@ publish = false
 
 [workspace.dependencies]
 bin-common = { path = "crates/lib/bin-common" }
-cfg        = { path = "crates/lib/cfg" }
 
 axum = { version = "0.8", features = ["http2"] }
 config = { version = "0.15" }
