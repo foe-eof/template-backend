@@ -30,10 +30,10 @@ RUN \
   mkdir -p /artifacts \
   && cd target/release \
   && cp -t /artifacts \
-  web-server \
+  server-web \
   && ls -la /artifacts
 
-FROM --platform=${TARGETPLATFORM} runtime AS web-server
-COPY --from=build /artifacts/web-server /usr/local/bin
-RUN ldd /usr/local/bin/web-server
-CMD ["web-server"]
+FROM --platform=${TARGETPLATFORM} runtime AS server-web
+COPY --from=build /artifacts/server-web /usr/local/bin
+RUN ldd /usr/local/bin/server-web
+CMD ["server-web"]

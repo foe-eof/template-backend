@@ -5,7 +5,7 @@ use tokio::net::TcpListener;
 async fn main() {
     bin_common::init();
 
-    let web_server::Config { socket_addr } = verdict::Loader::default().load();
+    let server_web::Config { socket_addr } = verdict::Loader::default().load();
 
     let listener = TcpListener::bind(socket_addr).await.unwrap();
     let router = Router::new().route("/healthcheck", routing::get(|| async { "OK" }));

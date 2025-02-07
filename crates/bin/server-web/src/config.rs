@@ -8,6 +8,6 @@ pub struct Config {
 }
 
 impl verdict::Config for Config {
-    const DEFAULT_CONFIG_DIR: &'static str = "./config/web-server";
-    const ENV_PREFIX: &'static str = "WEB_SERVER";
+    const DEFAULT_CONFIG_DIR: &'static str = "./config/server-web";
+    const ENV_PREFIX: &'static str = "SERVER_WEB";
 }
