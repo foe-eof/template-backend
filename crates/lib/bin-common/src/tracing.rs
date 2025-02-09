@@ -1,4 +1,4 @@
-//! Contains the `tracing` utilities`
+//! Contains the `tracing` utilities.
 
 use tracing::level_filters::LevelFilter;
 use tracing_subscriber::EnvFilter;

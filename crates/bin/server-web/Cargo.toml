@@ -1,6 +1,9 @@
 [package]
-edition = "2024"
-name    = "server-web"
+edition.workspace = true
+name              = "server-web"
+
+[lints]
+workspace = true
 
 [dependencies]
 bin-common = { workspace = true }

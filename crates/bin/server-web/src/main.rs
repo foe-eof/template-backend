@@ -14,6 +14,6 @@ async fn main() {
         result = axum::serve(listener, router) => {
             result.unwrap();
         }
-        _ = bin_common::signal::ctrl_c() => {}
+        () = bin_common::signal::ctrl_c() => {}
     };
 }

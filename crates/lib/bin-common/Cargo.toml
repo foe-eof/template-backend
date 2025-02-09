@@ -1,6 +1,9 @@
 [package]
-edition = "2021"
+edition = { workspace = true }
 name    = "bin-common"
+
+[lints]
+workspace = true
 
 [dependencies]
 dotenvy            = { workspace = true }

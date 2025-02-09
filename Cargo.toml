@@ -1,9 +1,15 @@
 [workspace]
 members  = ["crates/*/*"]
-resolver = "2"
+resolver = "3"
 
 [workspace.package]
+edition = "2024"
 publish = false
+
+[workspace.lints]
+clippy.cargo                   = "warn"
+clippy.multiple_crate_versions = { level = "allow", priority = 1 }
+clippy.pedantic                = "warn"
 
 [workspace.dependencies]
 bin-common = { path = "crates/lib/bin-common" }
